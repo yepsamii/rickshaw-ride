@@ -99,11 +99,11 @@ The Smart Rickshaw Management System is an innovative IoT solution that connects
 
 ```
 rickshaw-project/
-├── README.md                      # This file
-├── SYSTEM_ARCHITECTURE.md         # Detailed architecture document
-├── FIREBASE_SETUP_GUIDE.md       # Step-by-step Firebase setup
+├── README.md                      # This file - complete project overview
+├── TESTING_GUIDE.md               # Step-by-step testing instructions
+├── SYSTEM_ARCHITECTURE.md         # Detailed technical architecture
+├── initial_database.json          # Database initial data (import to Firebase)
 ├── Rulebook_IOTrix.pdf           # Competition rulebook
-├── initial_database.json          # Database initial data
 │
 ├── web-app/                       # React Web Application
 │   ├── index.html                 # HTML entry point
@@ -125,14 +125,8 @@ rickshaw-project/
 │       └── utils/                 # Helper functions
 │           └── helpers.js
 │
-├── hardware/                      # Hardware code (to be added)
-│   ├── station_module/            # ESP32 code for station
-│   └── rickshaw_module/           # ESP32 code for rickshaw OLED
-│
-└── documentation/                 # Additional docs
-    ├── circuit_diagrams/          # Circuit schematics
-    ├── test_cases/                # Testing documentation
-    └── video_demo/                # Demo video
+└── hardware/                      # Hardware code
+    └── station_module_esp32.ino   # ESP32 station module code
 ```
 
 ---
@@ -301,17 +295,15 @@ npm run preview
 
 ## 🧪 Testing the System
 
-### Test 1: Create a Ride Request (Simulate Hardware)
+For comprehensive step-by-step testing instructions, see **[TESTING_GUIDE.md](TESTING_GUIDE.md)**.
 
-1. Open Firebase Console → Realtime Database
-2. Click **"ride_requests"** node
-3. Click **"+"** to add new child
-4. Name it: `request_test_1`
-5. Add this JSON:
+### Quick Test (5 minutes)
+
+1. **Create a Ride Request** in Firebase Console:
 
 ```json
 {
-  "id": "request_test_1",
+  "id": "test_1",
   "user_id": "user_1",
   "pickup_station": "station_1",
   "dropoff_station": "station_2",
@@ -324,21 +316,12 @@ npm run preview
 }
 ```
 
-6. Check your web dashboard - the request should appear immediately!
+2. **Accept the Ride** on your dashboard
+3. **Confirm Pickup** 
+4. **Confirm Drop-off**
+5. **Verify** points increased by 8
 
-### Test 2: Accept and Complete a Ride
-
-1. In the dashboard, click **"Accept Ride"** on the pending request
-2. The ride moves to "Active Ride" section
-3. Click **"Confirm Pickup"**
-4. Click **"Confirm Drop-off"**
-5. Check statistics - points and rides should increase!
-
-### Test 3: View Ride History
-
-1. Click **"Refresh"** in Ride History section
-2. Your completed ride should appear
-3. Check ride details (distance, fare, points)
+✅ **For full testing**: Follow the comprehensive **[TESTING_GUIDE.md](TESTING_GUIDE.md)** with 22 detailed test cases covering all features.
 
 ---
 
@@ -514,19 +497,22 @@ For Phase 1 submission, record a 5-minute video showing:
 
 ---
 
-## 🎯 Test Cases Checklist
+## 🎯 Test Cases Overview
 
-- [ ] User detected by ultrasonic sensor
-- [ ] Laser verified by LDR
-- [ ] Ride request created in Firebase
-- [ ] Request appears on web dashboard
-- [ ] Rickshaw puller accepts request
-- [ ] Active ride displayed
-- [ ] Pickup confirmed
-- [ ] Drop-off confirmed
-- [ ] Points credited to rickshaw
-- [ ] Ride appears in history
-- [ ] Statistics updated correctly
+The system includes 22 comprehensive test cases across 10 phases:
+
+- ✅ **Setup Verification** - Firebase connection, database structure
+- ✅ **Ride Requests** - Creating and displaying requests
+- ✅ **Accept/Reject** - Request handling
+- ✅ **Ride Workflow** - Complete pickup to drop-off cycle
+- ✅ **History** - Viewing completed rides
+- ✅ **Real-time Sync** - Multi-tab and live updates
+- ✅ **Switching** - Multiple rickshaws management
+- ✅ **Responsive Design** - Mobile and tablet views
+- ✅ **Edge Cases** - Error handling and validation
+- ✅ **Integration** - End-to-end user scenarios
+
+📖 **See [TESTING_GUIDE.md](TESTING_GUIDE.md) for detailed testing instructions**
 
 ---
 
@@ -534,19 +520,22 @@ For Phase 1 submission, record a 5-minute video showing:
 
 ### Documentation
 
-- [System Architecture](SYSTEM_ARCHITECTURE.md) - Detailed technical design
-- [Firebase Setup Guide](FIREBASE_SETUP_GUIDE.md) - Step-by-step Firebase configuration
+- **[README.md](README.md)** (This file) - Complete project overview and setup
+- **[TESTING_GUIDE.md](TESTING_GUIDE.md)** - Comprehensive step-by-step testing instructions
+- **[SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md)** - Detailed technical architecture
 
 ### External Resources
 
 - [Firebase Documentation](https://firebase.google.com/docs/database)
 - [ESP32 Firebase Library](https://github.com/mobizt/Firebase-ESP32)
-- [Competition Forum](https://eteteleverse.com) - Ask questions
+- [React Documentation](https://react.dev)
+- [Vite Documentation](https://vitejs.dev)
 
 ### Contact
 
-- **Email**: eteteleverse@gmail.com
 - **Competition**: IOTrix - Televerse 1.0
+- **Email**: eteteleverse@gmail.com
+- **Website**: https://eteteleverse.com
 
 ---
 
