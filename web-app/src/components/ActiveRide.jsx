@@ -66,8 +66,8 @@ function ActiveRide({ activeRide, currentRickshawId, currentRickshaw, showToast 
 
       await update(ref(database), updates);
       
-      showToast('Pickup confirmed! User notified (Green LED ON)');
-      console.log('✅ Pickup confirmed - Green LED activated');
+      showToast('Pickup confirmed! User has been notified');
+      console.log('✅ Pickup confirmed - User notified');
       
     } catch (error) {
       setIsGettingLocation(false);
@@ -316,14 +316,14 @@ function ActiveRide({ activeRide, currentRickshawId, currentRickshaw, showToast 
         {!isPickedUp && (
           <div className="ride-status-info">
             <i className="fas fa-info-circle"></i>
-            <p>Navigate to pickup location. User's <strong>Yellow LED</strong> is ON.</p>
+            <p>Navigate to pickup location and confirm when arrived.</p>
           </div>
         )}
 
         {isPickedUp && (
           <div className="ride-status-info">
             <i className="fas fa-check-circle"></i>
-            <p>User picked up (<strong>Green LED</strong> was ON). Drive to destination.</p>
+            <p>User picked up. Drive to destination.</p>
           </div>
         )}
 
@@ -335,7 +335,7 @@ function ActiveRide({ activeRide, currentRickshawId, currentRickshaw, showToast 
               disabled={isGettingLocation}
             >
               <i className="fas fa-user-check"></i> 
-              {isGettingLocation ? 'Getting GPS...' : 'Confirm Pickup (Green LED ON)'}
+              {isGettingLocation ? 'Getting GPS...' : 'Confirm Pickup'}
             </button>
           ) : (
             <button 
