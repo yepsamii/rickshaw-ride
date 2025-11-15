@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm install && npm run build",
-  "outputDirectory": "web-app/dist",
+  "outputDirectory": "/dist",
   "installCommand": "npm install",
   "framework": "vite",
   "rewrites": [
