@@ -1,0 +1,16 @@
+{
+  "name": "rickshaw-database-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "test:concurrent": "node test_concurrent_writes.js",
+    "test:query": "node test_query_optimization.js",
+    "test:integrity": "node test_data_integrity.js",
+    "test:privacy": "node test_privacy_compliance.js",
+    "test:backup": "bash backup_recovery.sh",
+    "test:all": "npm run test:concurrent && npm run test:query && npm run test:integrity && npm run test:privacy && npm run test:backup"
+  },
+  "dependencies": {
+    "sqlite3": "^5.1.6"
+  }
+}
+
